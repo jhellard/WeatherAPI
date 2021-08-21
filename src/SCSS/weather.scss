@@ -1,0 +1,70 @@
+.weather {
+
+  &__wrapper {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    background: white;
+  }
+
+  &__main_icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  &__time {
+    font-size: 0.875rem;
+    color: orangered;
+  }
+
+  &__city {
+    margin-bottom: 10px;
+  }
+
+  &__current_day {
+    display: flex;
+  }
+
+  &__temps {
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 50px;
+  }
+
+  &__extra {
+    margin: 15px 0;
+    padding-left: 10px;
+    border-left: 1px solid orangered;
+  }
+
+  &__wind {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__wind_icon {
+    height: 25px;
+    margin-right: 5px;
+  }
+
+  &__daily {
+    display: flex;
+    flex-direction: row;
+  }
+
+}
