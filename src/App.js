@@ -61,9 +61,9 @@ function App() {
 
   return waiting ? (
     <div className="wrapper">
-      <div className='main'>
+      <div className="main">
         <h1>WeatherAPI Test</h1>
-        <img className='question' src={QuestionMark} alt="question mark" />
+        <img className="question" src={QuestionMark} alt="question mark" />
       </div>
 
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -77,6 +77,7 @@ function App() {
         </label>
       </form>
     </div>
+    // Waiting for the data to be loaded, this will never be 0 with real data (or vary rarely)
   ) : APIData.current.temp === 0 ? (
     <Spinner />
   ) : (

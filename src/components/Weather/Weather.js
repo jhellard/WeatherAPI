@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Cloud from "../../svg/cloudy-day-3.svg";
 import Wind from "../../svg/wind.svg";
@@ -19,11 +19,26 @@ const Weather = ({ APIData, City }) => {
     return result;
   };
 
+  const [nextFiveDays, setNextFiveDays] = useState([]);
+
+  const getNextFiveDays = () => {
+    const today = new Date();
+    let upcomingDays = [];
+    for (let i = 1; i < 6; i++) {
+      let upcomingDay = new Date(today);
+      upcomingDay.setDate(today.getDate() + i);
+      upcomingDay.toLocaleDateString();
+      upcomingDays.push(upcomingDay);
+    }
+    setNextFiveDays(upcomingDays);
+  };
+
   return (
     <div className="weather__wrapper">
       <div className="weather__container">
         <button onClick={logData}>Log Data</button>
-        <p className="weather__time">Aug 18th, 16:05pm</p>
+        {<button onClick={getNextFiveDays}>Get Next Five Days</button>}
+        <p className="weather__time">{Date().slice(0, 24)}</p>
         <h2 className="weather__city">{City}</h2>
         <div className="weather__current_day">
           <img className="weather__main_icon" src={Cloud} alt="cloudy" />
@@ -41,14 +56,13 @@ const Weather = ({ APIData, City }) => {
             </div>
             <p>Humidity: {APIData.current.humidity}%</p>
             <p>Visibility: {APIData.current.visibility / 1000}km</p>
+            <p>Dew Point: {Math.round(APIData.current.dew_point)}°F</p>
           </div>
         </div>
         <div className="weather__daily">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {nextFiveDays.map((day, i) => (
+            <Card day={day} key={day} data={APIData.daily[i + 1]} />
+          ))}
         </div>
       </div>
     </div>
