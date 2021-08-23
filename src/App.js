@@ -5,6 +5,8 @@ import Spinner from "./components/Spinner/Spinner";
 import Geocode from "react-geocode";
 import Weather from "./components/Weather/Weather";
 
+import QuestionMark from "./svg/question.svg";
+
 function App() {
   // Grabbing API keys from .env file
   const { REACT_APP_WEATHER_API, REACT_APP_GOOGLE_API } = process.env;
@@ -52,9 +54,19 @@ function App() {
     );
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAddress(Address);
+  };
+
   return waiting ? (
     <div className="wrapper">
-      <form>
+      <div className='main'>
+        <h1>WeatherAPI Test</h1>
+        <img className='question' src={QuestionMark} alt="question mark" />
+      </div>
+
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label>
           <input
             className="input__text"
@@ -63,11 +75,6 @@ function App() {
             placeholder="Enter an address"
           />
         </label>
-        <input
-          type="button"
-          value="Submit"
-          onClick={() => handleAddress(Address)}
-        />
       </form>
     </div>
   ) : APIData.current.temp === 0 ? (
