@@ -4,6 +4,7 @@ import "./SCSS/styles.scss";
 import Spinner from "./components/Spinner/Spinner";
 import Geocode from "react-geocode";
 import Weather from "./components/Weather/Weather";
+import ReactTooltip from "react-tooltip";
 
 import QuestionMark from "./svg/question.svg";
 
@@ -15,6 +16,7 @@ function App() {
   const WeatherAPI = REACT_APP_WEATHER_API;
   Geocode.setApiKey(REACT_APP_GOOGLE_API);
 
+  // Setting initial state to avoid the Weather component not having any data prior to the fetch finishing.
   const initialState = {
     current: {
       temp: 0,
@@ -54,6 +56,7 @@ function App() {
     );
   };
 
+  // This just makes sure the page does not reload on enter.
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddress(Address);
@@ -63,7 +66,29 @@ function App() {
     <div className="wrapper">
       <div className="main">
         <h1>WeatherAPI Test</h1>
-        <img className="question" src={QuestionMark} alt="question mark" />
+        <ReactTooltip id="global" effect="solid">
+          <p>
+            Thanks for checking out my WeatherAPI Test website! This site is
+            built using ReactJS and the OpenWeatherMap API.
+          </p>
+          <br />
+          <p>This site utlilizes key elements of React including:</p>
+          <ul>
+            <li>State Management</li>
+            <li>Route Management</li>
+            <li>Data Fetching</li>
+            <li>Styled using SCSS/Styled Components</li>
+          </ul>
+        </ReactTooltip>
+        <a className="github" href="https://github.com/jhellard">
+          <img
+            data-tip
+            data-for="global"
+            className="question"
+            src={QuestionMark}
+            alt="question mark"
+          />
+        </a>
       </div>
 
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -77,8 +102,8 @@ function App() {
         </label>
       </form>
     </div>
-    // Waiting for the data to be loaded, this will never be 0 with real data (or vary rarely)
-  ) : APIData.current.temp === 0 ? (
+  ) : // Waiting for the data to be loaded, this will never be 0 with real data (or very rarely)
+  APIData.current.temp === 0 ? (
     <Spinner />
   ) : (
     <Weather APIData={APIData} City={Address} />

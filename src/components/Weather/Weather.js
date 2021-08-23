@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Cloud from "../../svg/cloudy-day-3.svg";
 import Wind from "../../svg/wind.svg";
 import Card from "../Card/Card";
 
 const Weather = ({ APIData, City }) => {
-  const logData = () => {
-    console.log(APIData);
-  };
-
   const titleCase = (sentence) => {
     let arr = sentence.split(" ");
     let result = arr
@@ -19,7 +15,7 @@ const Weather = ({ APIData, City }) => {
     return result;
   };
 
-  const [nextFiveDays, setNextFiveDays] = useState([]);
+  let nextFiveDays = [];
 
   const getNextFiveDays = () => {
     const today = new Date();
@@ -30,14 +26,14 @@ const Weather = ({ APIData, City }) => {
       upcomingDay.toLocaleDateString();
       upcomingDays.push(upcomingDay);
     }
-    setNextFiveDays(upcomingDays);
+    nextFiveDays = upcomingDays;
   };
+
+  getNextFiveDays();
 
   return (
     <div className="weather__wrapper">
       <div className="weather__container">
-        <button onClick={logData}>Log Data</button>
-        {<button onClick={getNextFiveDays}>Get Next Five Days</button>}
         <p className="weather__time">{Date().slice(0, 24)}</p>
         <h2 className="weather__city">{City}</h2>
         <div className="weather__current_day">
