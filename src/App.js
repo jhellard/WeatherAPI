@@ -23,7 +23,7 @@ function App() {
       feels_like: 0,
       weather: [
         {
-          description: "Placeholder",
+          description: "Loading...",
         },
       ],
     },
@@ -63,45 +63,45 @@ function App() {
   };
 
   return waiting ? (
-    <div className="wrapper">
-      <div className="main">
-        <h1>WeatherAPI Test</h1>
-        <ReactTooltip id="global" effect="solid">
-          <p>
-            Thanks for checking out my WeatherAPI Test website! This site is
-            built using ReactJS and the OpenWeatherMap API.
-          </p>
-          <br />
-          <p>This site utlilizes key elements of React including:</p>
-          <ul>
-            <li>State Management</li>
-            <li>Route Management</li>
-            <li>Data Fetching</li>
-            <li>Styled using SCSS/Styled Components</li>
-          </ul>
-        </ReactTooltip>
-        <a className="github" href="https://github.com/jhellard">
-          <img
-            data-tip
-            data-for="global"
-            className="question"
-            src={QuestionMark}
-            alt="question mark"
-          />
-        </a>
-      </div>
+        <div className="wrapper">
+          <div className="main">
+            <h1>WeatherAPI Test</h1>
+            <ReactTooltip id="global" effect="solid">
+              <p>
+                Thanks for checking out my WeatherAPI test website! This site is
+                built using ReactJS and the OpenWeatherMap API.
+              </p>
+              <br />
+              <p>This site utlilizes key elements of React including:</p>
+              <ul>
+                <li>State Management</li>
+                <li>Route Management</li>
+                <li>Data Fetching</li>
+                <li>Styled using SCSS/Styled Components</li>
+              </ul>
+            </ReactTooltip>
+            <a className="github" href="https://github.com/jhellard">
+              <img
+                data-tip
+                data-for="global"
+                className="question"
+                src={QuestionMark}
+                alt="question mark"
+              />
+            </a>
+          </div>
 
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          <input
-            className="input__text"
-            type="text"
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Enter an address"
-          />
-        </label>
-      </form>
-    </div>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <label>
+              <input
+                className="input__text"
+                type="text"
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Enter an address"
+              />
+            </label>
+          </form>
+        </div>
   ) : // Waiting for the data to be loaded, this will never be 0 with real data (or very rarely)
   APIData.current.temp === 0 ? (
     <Spinner />

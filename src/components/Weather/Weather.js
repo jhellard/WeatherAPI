@@ -2,6 +2,7 @@ import React from "react";
 
 import Cloud from "../../svg/cloudy-day-3.svg";
 import Wind from "../../svg/wind.svg";
+import BackArrow from "../../svg/back.svg";
 import Card from "../Card/Card";
 
 const Weather = ({ APIData, City }) => {
@@ -33,6 +34,9 @@ const Weather = ({ APIData, City }) => {
 
   return (
     <div className="weather__wrapper">
+      <a className="weather__back_link" href="/">
+        <img className="weather__back" src={BackArrow} alt="back arrow" />
+      </a>
       <div className="weather__container">
         <p className="weather__time">{Date().slice(0, 24)}</p>
         <h2 className="weather__city">{City}</h2>

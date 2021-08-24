@@ -1,5 +1,6 @@
 .weather {
   &__wrapper {
+    position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -64,5 +65,16 @@
   &__daily {
     display: flex;
     flex-direction: row;
+  }
+
+  &__back {
+    height: 30px;
+      
+  }
+
+  &__back_link {
+    position: absolute;
+    margin-right: 950px;
+    margin-bottom: 400px;
   }
 }
