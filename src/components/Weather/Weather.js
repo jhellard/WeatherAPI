@@ -4,6 +4,7 @@ import Cloud from "../../svg/cloudy-day-3.svg";
 import Wind from "../../svg/wind.svg";
 import BackArrow from "../../svg/back.svg";
 import Card from "../Card/Card";
+import Icon from './Icon/Icon';
 
 const Weather = ({ APIData, City }) => {
   const titleCase = (sentence) => {
@@ -15,6 +16,8 @@ const Weather = ({ APIData, City }) => {
       .join(" ");
     return result;
   };
+
+  console.log(APIData);
 
   let nextFiveDays = [];
 
@@ -41,7 +44,7 @@ const Weather = ({ APIData, City }) => {
         <p className="weather__time">{Date().slice(0, 24)}</p>
         <h2 className="weather__city">{City}</h2>
         <div className="weather__current_day">
-          <img className="weather__main_icon" src={Cloud} alt="cloudy" />
+          <Icon currentWeather={APIData.current.weather[0].main}/>
           <div className="weather__temps">
             <h3>{Math.round(APIData.current.temp)}°F</h3>
             <p>
