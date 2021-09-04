@@ -1,8 +1,8 @@
 .card {
   &__wrapper {
-    margin: 20px;
-    width: 150px;
-    height: 200px;
+    margin: 20px 12px;
+    width: 130px;
+    height: 180px;
     border-radius: 10px;
     border: 1px solid rgba(50, 50, 50, 0.25);
     box-shadow: 10px 10px rgba(0, 0, 0, 0.15);
@@ -10,6 +10,7 @@
     p,
     h3 {
       margin: 10px;
+      margin-bottom: 0;
     }
   }
 

@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { SVG } from "./Icon.styles";
+import { SVG } from "./IconSm.styles";
 
 // Possible weather SVG's
 
-import Cloud from '../../../svg/cloudy-day-3.svg'
-import Clear from '../../../svg/day.svg';
-import HeavyRain from '../../../svg/rainy-6.svg';
+import Cloud from '../../svg/cloudy-day-3.svg'
+import Clear from '../../svg/day.svg';
+import HeavyRain from '../../svg/rainy-6.svg';
 
 const Icon = ({ currentWeather }) => {
+
   let setCurrent;
   let weather = {
     Rain: HeavyRain,
