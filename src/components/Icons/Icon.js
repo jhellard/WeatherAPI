@@ -9,6 +9,7 @@ import { SVG } from "./Icon.styles";
 import Cloud from '../../svg/cloudy-day-3.svg'
 import Clear from '../../svg/day.svg';
 import HeavyRain from '../../svg/rainy-6.svg';
+import Mist from '../../svg/wind.svg';
 
 const Icon = ({ currentWeather, currentTime }) => {
  
@@ -19,7 +20,8 @@ const Icon = ({ currentWeather, currentTime }) => {
   let weather = {
     Rain: HeavyRain,
     Clouds: Cloud,
-    Clear: Clear
+    Clear: Clear,
+    Mist: Mist
   }
 
   setCurrent = weather[currentWeather];
