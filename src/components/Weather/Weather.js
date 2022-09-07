@@ -35,7 +35,7 @@ const Weather = ({ APIData, City }) => {
   getNextFiveDays();
 
   return (
-    <div className="weather__wrapper">
+    <div className="weather__wrapper animate__animated animate__fadeIn">
       <a className="weather__back_link" href="/">
         <img className="weather__back" src={BackArrow} alt="back arrow" />
       </a>

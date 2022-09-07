@@ -13,11 +13,22 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
-    width: 830px;
-    height: 440px;
+    width: auto;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.05);
     background: white;
+
+    @include sm {
+      min-width: 300px;
+      min-height: 500px;
+    }
+
+    @include md {
+      max-width: 500px;
+      max-height: 500px;
+      margin: 10px;
+    }
   }
 
   &__time {

@@ -21,10 +21,11 @@ const Card = ({ day, data: APIData }) => {
     <div className="card__wrapper">
       <h3 className="card__day">{currentDay}</h3>
       <IconSm currentWeather={APIData.weather[0].main} currentTime={APIData.dt}/>
-      <p className="card__temp">High: {Math.round(APIData.temp.max)}</p>
-      <p className="card__temp">Low: {Math.round(APIData.temp.min)}</p>
+      <p className="card__temp">High: {Math.round(APIData.temp.max)}°F</p>
+      <p className="card__temp">Low: {Math.round(APIData.temp.min)}°F</p>
     </div>
   );
 };
 
 export default Card;
+

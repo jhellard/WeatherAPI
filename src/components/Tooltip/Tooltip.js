@@ -22,7 +22,7 @@ const Tooltip = () => {
         </ul>
         <p>Click to learn more...</p>
       </ReactTooltip>
-      <a className="github" href="https://github.com/jhellard">
+      <a className="github" href="https://github.com/jhellard/WeatherAPI">
         <img
           data-tip
           data-for="global"

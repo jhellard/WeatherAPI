@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SCSS/styles.scss";
+import 'animate.css';
 
 import Spinner from "./components/Spinner/Spinner";
 import Geocode from "react-geocode";
@@ -62,7 +63,7 @@ function App() {
 
   return waiting ? (
     <div className="wrapper">
-      <div className="main">
+      <div className="main animate__animated animate__fadeIn">
         <h1>WeatherAPI Test</h1>
         <Tooltip />
       </div>
@@ -70,10 +71,11 @@ function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>
           <input
-            className="input__text"
+            className="input__text animate__animated animate__fadeIn"
             type="text"
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Enter an address"
+            
           />
         </label>
       </form>
